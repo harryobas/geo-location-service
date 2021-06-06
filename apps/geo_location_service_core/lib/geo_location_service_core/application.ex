@@ -8,6 +8,8 @@ defmodule GeoLocationServiceCore.Application do
   @impl true
   def start(_type, _args) do
     children = [
+
+      GeoLocationServiceCore.Repo
       # Starts a worker by calling: GeoLocationServiceCore.Worker.start_link(arg)
       # {GeoLocationServiceCore.Worker, arg}
     ]
