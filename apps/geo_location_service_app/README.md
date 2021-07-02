@@ -1,5 +1,3 @@
-# geo-location-service
+# GeoLocationServiceApp
 
 **TODO: Add description**
-
-
