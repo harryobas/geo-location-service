@@ -1,2 +1,3 @@
 ExUnit.start()
-Ecto.Adapters.SQL.Sandbox.mode(GeoLocationServiceApi.Repo, :manual)
+GeoLocationServiceApp.Repo.start_link()
+Ecto.Adapters.SQL.Sandbox.mode(GeoLocationServiceApp.Repo, :manual)

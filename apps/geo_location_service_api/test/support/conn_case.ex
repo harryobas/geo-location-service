@@ -27,10 +27,10 @@ defmodule GeoLocationServiceApi.ConnCase do
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(GeoLocationServiceApi.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(GeoLocationServiceApp.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(GeoLocationServiceApi.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(GeoLocationServiceApp.Repo, {:shared, self()})
     end
 
     {:ok, conn: Phoenix.ConnTest.build_conn()}
