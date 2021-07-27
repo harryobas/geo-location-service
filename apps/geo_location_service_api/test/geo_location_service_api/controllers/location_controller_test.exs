@@ -36,7 +36,7 @@ defmodule GeoLocationServiceApi.LocationControllerTest do
         conn
         |> get(Routes.location_path(conn, :show_location, @invalid_ip_address))
 
-        assert json_response(response, 200)["error"] =~ "not found"
+        assert json_response(response, 404)["error"] =~ "not found"
     end
   end
 

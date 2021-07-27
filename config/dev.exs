@@ -2,10 +2,10 @@ import Config
 
 # Configure your database
 config :geo_location_service_app, GeoLocationServiceApp.Repo,
-  username: System.get_env("DB_USER"),
-  password: System.get_env("DB_PASS"),
-  database: System.get_env("DB_NAME"),
-  hostname: System.get_env("DB_HOST"),
+  username: System.get_env("POSTGRES_USER"),
+  password: System.get_env("POSTGRES_PASSWORD"),
+  database: System.get_env("POSTGRES_DB"),
+  hostname: System.get_env("POSTGRES_HOST"),
   #socket_dir: "/var/run/postgres",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10

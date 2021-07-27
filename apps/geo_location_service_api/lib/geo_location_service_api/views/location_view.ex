@@ -9,6 +9,7 @@ defmodule GeoLocationServiceApi.LocationView do
 
   def render("location.json", %{location: location}) do
     %{
+
       country: location.country,
       country_code: location.country_code,
       city: location.city,

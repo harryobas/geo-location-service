@@ -14,7 +14,7 @@ config :geo_location_service_app,
   ecto_repos: [GeoLocationServiceApp.Repo]
 
 config :geo_location_service_api,
-  #ecto_repos: [GeoLocationServiceApi.Repo],
+  ecto_repos: [GeoLocationServiceApp.Repo],
   generators: [context_app: false]
 
 # Configures the endpoint

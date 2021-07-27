@@ -1,0 +1,27 @@
+---
+version: "2"
+services:
+  app:
+    build: .
+    ports:
+      - "4000:4000"
+    volumes:
+      - .:/app
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=geo_location_service_dev
+      - POSTGRES_HOST=db
+    depends_on:
+      - db
+  db:
+    image: postgres:10
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=geo_location_service_dev
+    volumes:
+      - db-data:/data/db
+
+volumes:
+  db-data:
