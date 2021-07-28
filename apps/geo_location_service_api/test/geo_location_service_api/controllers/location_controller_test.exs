@@ -4,17 +4,17 @@ defmodule GeoLocationServiceApi.LocationControllerTest do
   alias GeoLocationServiceApp.Storage.Location
   alias GeoLocationServiceApp.Repo
 
-  @valid_ip_address "85.68.71.24"
-  @invalid_ip_address "127.0.0.1"
+  @valid_ip_address %{"query" => %{"ip" => "85.68.71.24"}}
+  @invalid_ip_address %{"query" => %{"ip" => "127.0.0.1"}}
 
   setup [:create_location]
 
-  describe "show_location/2" do
+  describe "find_location/2" do
     test "responds with location info if location is found", %{conn: conn} do
 
       response =
         conn
-        |> get(Routes.location_path(conn, :show_location, @valid_ip_address))
+        |> post(Routes.location_path(conn, :find_location, @valid_ip_address))
         |> json_response(200)
 
         expected = %{
@@ -34,7 +34,7 @@ defmodule GeoLocationServiceApi.LocationControllerTest do
     test "responds with error if location is not found", %{conn: conn} do
       response =
         conn
-        |> get(Routes.location_path(conn, :show_location, @invalid_ip_address))
+        |> post(Routes.location_path(conn, :find_location, @invalid_ip_address))
 
         assert json_response(response, 404)["error"] =~ "not found"
     end
@@ -42,7 +42,7 @@ defmodule GeoLocationServiceApi.LocationControllerTest do
 
   defp create_location(_) do
     attrs = %{
-      ip_address: @valid_ip_address,
+      ip_address: @valid_ip_address["query"]["ip"],
       city: "New Alessiaview",
       country: "Netherlands",
       country_code:  "PA",

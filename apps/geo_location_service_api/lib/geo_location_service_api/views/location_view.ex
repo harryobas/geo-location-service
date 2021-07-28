@@ -3,7 +3,7 @@ defmodule GeoLocationServiceApi.LocationView do
 
   alias __MODULE__
 
-  def render("show_location.json", %{location: location}) do
+  def render("find_location.json", %{location: location}) do
     %{data: render_one(location, LocationView, "location.json")}
   end
 

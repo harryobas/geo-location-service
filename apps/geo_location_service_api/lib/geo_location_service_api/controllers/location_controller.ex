@@ -4,9 +4,10 @@ defmodule GeoLocationServiceApi.LocationController do
   alias GeoLocationServiceApp.GeoLocation
   alias GeoLocationServiceApi.ErrorView
 
-  def show_location(conn, %{"ip" => ip}) do
-    with {:ok, location} <- GeoLocation.get_location_by_ip(ip) do
-      render(conn,"show_location.json",location: location)
+  def find_location(conn, %{"query" => params}) do
+    ip_address = params["ip"]
+    with {:ok, location} <- GeoLocation.get_location_by_ip(ip_address) do
+      render(conn,"find_location.json",location: location)
     else
       nil ->
         conn

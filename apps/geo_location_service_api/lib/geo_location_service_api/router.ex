@@ -8,6 +8,6 @@ defmodule GeoLocationServiceApi.Router do
   scope "/api", GeoLocationServiceApi do
     pipe_through :api
 
-    get "/locations/:ip", LocationController, :show_location
+    post "/locations", LocationController, :find_location
   end
 end

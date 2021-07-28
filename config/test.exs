@@ -7,10 +7,10 @@ config :geo_location_service_api, GeoLocationServiceApi.Endpoint,
   server: false
 
 config :geo_location_service_app, GeoLocationServiceApp.Repo,
-     username: System.get_env("DATAASE_USER"),
-     password: System.get_env("DATABASE_PASSWORD"),
+     username: System.get_env("POSTGRES_USER"),
+     password: System.get_env("POSTGRES_PASSWORD"),
      database: "geo_location_service_test",
-     hostname: System.get_env("DATABASE_HOST"),
+     hostname: System.get_env("POSTGRES_HOST"),
      #port: System.get_env("DB_PORT"),
      pool: Ecto.Adapters.SQL.Sandbox
 
