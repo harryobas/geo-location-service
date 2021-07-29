@@ -34,7 +34,7 @@ Make sure to have both docker and docker-compose installed on your machine and f
    - Response
 
     - 200 Success
-    
+
     ```
      {
         "data": {
